@@ -105,6 +105,9 @@ footer {
   text-decoration: none;
   border-radius: 6px;
   transition: background 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .play-btn:hover {
