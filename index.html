@@ -18,6 +18,8 @@
 <body>
 
   <header>
+    <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+    
     <h1>My Game Dev Hub</h1>
     <nav>
       <a href="index.html">Home</a>
@@ -35,5 +37,21 @@
     &copy; 2025 Josiah Diestler. All rights reserved.
   </footer>
 
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+  
+    // Load stored theme
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+    }
+  
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const newTheme = body.classList.contains('dark') ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+  
 </body>
 </html>
