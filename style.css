@@ -1,8 +1,17 @@
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #222;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --btn-bg: #2a5298;
+  --btn-hover: #1e3c72;
+  --tag-bg: #007acc;
+}
+
 body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-  color: #333;
+  color: var(--text-color);
 
   background: linear-gradient(-45deg, #32CD32, #004e92, #32CD32, #004e92);
   background-size: 400% 400%;
@@ -25,7 +34,7 @@ main {
   padding: 2em;
   max-width: 800px;
   margin: auto;
-  background: white;
+  background: var(--bg-color);
 }
 
 footer {
@@ -48,7 +57,7 @@ footer {
 }
 
 .game-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   overflow: hidden;
@@ -100,7 +109,7 @@ footer {
   display: inline-block;
   margin-top: 0.5em;
   padding: 0.5em 1em;
-  background: #2a5298;
+  background: var(--btn-bg);
   color: white;
   text-decoration: none;
   border-radius: 6px;
@@ -111,7 +120,7 @@ footer {
 }
 
 .play-btn:hover {
-  background: #1e3c72;
+  background: var(--btn-hover);
   transform: scale(1.05);
 }
 
@@ -121,7 +130,7 @@ footer {
 
 .tag {
   display: inline-block;
-  background-color: #007acc;
+  background-color: var(--tag-bg);
   color: white;
   font-size: 0.75em;
   padding: 0.2em 0.6em;
@@ -149,4 +158,13 @@ footer {
     width: 100%;
     text-align: center;
   }
+}
+
+body.dark {
+  --bg-color: #1a1a1a;
+  --text-color: #eaeaea;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --btn-bg: #444b7d;
+  --btn-hover: #2b2f55;
+  --tag-bg: #3399ff;
 }
