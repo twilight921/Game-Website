@@ -160,6 +160,17 @@ footer {
   }
 }
 
+#theme-toggle {
+  float: right;
+  margin-top: -2.5em;
+  margin-right: 1em;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.25em;
+  cursor: pointer;
+}
+
 body.dark {
   --bg-color: #1a1a1a;
   --text-color: #eaeaea;
