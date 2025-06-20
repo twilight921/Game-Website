@@ -171,6 +171,22 @@ footer {
   cursor: pointer;
 }
 
+.discord-btn {
+  display: inline-block;
+  padding: 0.5em 1.2em;
+  background: #5865F2; /* Discord brand color */
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.discord-btn:hover {
+  background: #4752c4;
+}
+
+
 
 body.dark {
   --bg-color: #1a1a1a;
