@@ -186,6 +186,22 @@ footer {
   background: #4752c4;
 }
 
+.game-detail {
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 2em;
+  background: var(--card-bg);
+  border-radius: 10px;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.detail-logo {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto 2em auto;
+}
 
 
 body.dark {
