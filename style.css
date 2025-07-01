@@ -144,8 +144,10 @@ footer {
   .game-grid {
     flex-direction: column;
     align-items: center;
-  .banner {
-    max-height: 180px;
+  
+  .banner img {
+    max-height: 200px; /* or whatever looks good */
+    object-fit: cover;
   }
 
   .game-card {
@@ -206,12 +208,6 @@ footer {
   margin: 0 auto 2em auto;
 }
 
-.banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
 
 .banner {
   width: 100%;
