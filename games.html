@@ -3,27 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Games</title>
+  <title>Games | Twilight Ember Games</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-</head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJCNZF7YF9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJCNZF7YF9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-FJCNZF7YF9');
-</script>
+    gtag('config', 'G-FJCNZF7YF9');
+  </script>
+  <script src="theme.js" defer></script>
+</head>
 <body>
 
   <header>
-    <h1>My Game Dev Hub</h1>
+    <a href="index.html" class="site-title">Twilight Ember Games</a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="games.html">Games</a>
+      <a href="games.html" aria-current="page">Games</a>
       <a href="about.html">About</a>
     </nav>
+
+    <div class="header-actions">
+      <a href="https://discord.gg/QC223aD9S4" target="_blank" rel="noopener noreferrer" class="btn btn-discord">Discord</a>
+      <a href="https://twilight-ember-games.itch.io/fracturepoint" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">itch.io</a>
+      <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+    </div>
   </header>
 
   <main>
@@ -32,7 +43,7 @@
 
       <!-- Game Card -->
       <div class="game-card">
-        <img src="images/FracturePointLogosmall.png" alt="Screenshot of Game" class="game-img" />
+        <img src="images/FracturePointLogosmall.png" alt="Fracturepoint logo" class="game-img" />
         <div class="game-info">
           <h3>Fracturepoint</h3>
           <span class="status in-dev">In Development</span>
@@ -42,8 +53,8 @@
             <span class="tag">PC</span>
           </div>
           <p>Fracturepoint is a MOBA style game with similar base mechanics to Dota 2 that employs some very unique features! Instead of following suit with other MOBAs, Fracturepoint has a more well 'fractured' way to conrol the game. Your team must be the first one to destroy all three of the enemy team's 'hearts', special crystals stabilizing their side of the map. But beware, because each heart taken gives a buff, but also takes something from you! Will you break the world, or will it break you?</p>
-          <a href="games/fracturepoint.html" class="play-btn">View Details</a>
-          <a href="https://yourgame-link.com" class="play-btn" target="_blank">Play / Learn More</a>
+          <a href="games/fracturepoint.html" class="btn btn-primary">View Details</a>
+          <a href="https://twilight-ember-games.itch.io/fracturepoint" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Play / Learn More</a>
         </div>
       </div>
 
@@ -53,9 +64,8 @@
   </main>
 
   <footer>
-    &copy; 2025 Your Name. All rights reserved.
+    &copy; <span id="copyright-year">2026</span> Twilight Ember Games. All rights reserved.
   </footer>
 
 </body>
 </html>
-

@@ -1,40 +1,141 @@
 :root {
-  --bg-color: #f4f4f4;
-  --text-color: #222;
-  --card-bg: rgba(255, 255, 255, 0.1);
-  --btn-bg: #2a5298;
-  --btn-hover: #1e3c72;
-  --tag-bg: #007acc;
+  --bg-top: #0f0b1e;
+  --bg-bottom: #2a1a4a;
+  --surface: rgba(26, 19, 48, 0.85);
+  --header-bg: #150f28;
+  --header-text: #f8f1ff;
+  --text-color: #f1e9ff;
+  --muted-text: #c9bfe0;
+  --ember: #ff7a1a;
+  --ember-light: #ff9d3a;
+  --glow: #ffc46b;
+  --dusk-rose: #c2416b;
+  --btn-bg: var(--ember);
+  --btn-hover: var(--ember-light);
+  --tag-bg: var(--dusk-rose);
+  --border-color: rgba(255, 154, 58, 0.25);
+}
+
+body.light {
+  --bg-top: #fff6ea;
+  --bg-bottom: #ffe3c2;
+  --surface: rgba(255, 255, 255, 0.75);
+  --text-color: #2a1a30;
+  --muted-text: #5a4a63;
+  --border-color: rgba(194, 65, 107, 0.25);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
   color: var(--text-color);
+  line-height: 1.6;
 
-  background: linear-gradient(-45deg, #32CD32, #004e92, #32CD32, #004e92);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  background: linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+  background-size: 200% 200%;
+  animation: twilightDrift 30s ease infinite;
 }
 
-header, nav, footer {
-  background-color: #222;
-  color: white;
-  padding: 1em;
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
 }
 
-nav a {
-  color: white;
-  margin-right: 1em;
+@keyframes twilightDrift {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+}
+
+h1, h2, h3 {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.02em;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--glow);
+  outline-offset: 2px;
+}
+
+header, footer {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 1em 1.5em;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.site-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4em;
+  font-weight: 700;
+  color: var(--glow);
   text-decoration: none;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.4em;
+}
+
+header nav {
+  display: flex;
+  gap: 1.2em;
+  flex-wrap: wrap;
+}
+
+header nav a {
+  color: var(--header-text);
+  text-decoration: none;
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+header nav a:hover,
+header nav a[aria-current="page"] {
+  color: var(--ember-light);
+  border-bottom-color: var(--ember);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  flex-wrap: wrap;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.3em;
+  color: var(--header-text);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.2em;
 }
 
 main {
   padding: 2em;
   max-width: 800px;
-  margin: auto;
-  background: var(--bg-color);
+  margin: 2em auto;
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
 }
 
 footer {
@@ -42,10 +143,8 @@ footer {
   font-size: 0.9em;
 }
 
-@keyframes gradientShift {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+footer a {
+  color: var(--ember-light);
 }
 
 .game-grid {
@@ -57,18 +156,20 @@ footer {
 }
 
 .game-card {
-  background: var(--card-bg);
+  background: var(--surface);
   backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 300px;
-  transition: transform 0.3s ease, box-shadow 0.3s eaase;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .game-card:hover {
   transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45), 0 0 20px rgba(255, 122, 26, 0.25);
+  border-color: var(--ember);
 }
 
 .game-img {
@@ -80,7 +181,7 @@ footer {
 
 .game-info {
   padding: 1em;
-  color: black;
+  color: var(--text-color);
 }
 
 .game-info h3 {
@@ -96,32 +197,13 @@ footer {
 }
 
 .in-dev {
-  background: orange;
-  color: black;
+  background: var(--glow);
+  color: #3a1e00;
 }
 
 .released {
-  background: green;
+  background: #2f9e64;
   color: white;
-}
-
-.play-btn {
-  display: inline-block;
-  margin-top: 0.5em;
-  padding: 0.5em 1em;
-  background: var(--btn-bg);
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background 0.3s ease, transform 0.2s ease;
-  text-align: center;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-.play-btn:hover {
-  background: var(--btn-hover);
-  transform: scale(1.05);
 }
 
 .tags {
@@ -140,13 +222,143 @@ footer {
   letter-spacing: 0.5px;
 }
 
+.btn {
+  display: inline-block;
+  padding: 0.55em 1.2em;
+  margin-top: 0.5em;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 100%;
+}
+
+.btn-primary {
+  background: var(--btn-bg);
+  color: #2a1300;
+}
+
+.btn-primary:hover {
+  background: var(--btn-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ember-light);
+  border: 1px solid var(--ember);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 122, 26, 0.12);
+  transform: translateY(-2px);
+}
+
+.btn-discord {
+  background: #5865F2;
+  color: white;
+}
+
+.btn-discord:hover {
+  background: #4752c4;
+  transform: translateY(-2px);
+}
+
+.game-detail {
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 2em;
+  background: var(--surface);
+  border-radius: 10px;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.page-title {
+  color: var(--glow);
+  text-align: center;
+  margin: 0.5em 0 0;
+}
+
+.detail-logo {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto 2em auto;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(15, 11, 30, 0) 55%, var(--bg-bottom) 100%);
+  pointer-events: none;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.feature-item {
+  background: rgba(255, 154, 58, 0.06);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  backdrop-filter: blur(4px);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-4px);
+  background-color: rgba(255, 154, 58, 0.12);
+}
+
+.feature-item h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+  font-size: 0.96rem;
+  line-height: 1.4;
+}
+
 @media (max-width: 600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
   .game-grid {
     flex-direction: column;
     align-items: center;
-  
+  }
+
   .banner img {
-    max-height: 200px; /* or whatever looks good */
+    max-height: 200px;
     object-fit: cover;
   }
 
@@ -158,108 +370,7 @@ footer {
     height: auto;
   }
 
-  .play-btn {
+  .btn {
     width: 100%;
-    text-align: center;
   }
-}
-
-#theme-toggle {
-  position: absolute;
-  top: 1.25em;
-  right: 1em;
-  background: none;
-  border: none;
-  font-size: 1.5em;
-  color: var(--text-color);
-  cursor: pointer;
-}
-
-.discord-btn {
-  display: inline-block;
-  padding: 0.5em 1.2em;
-  background: #5865F2; /* Discord brand color */
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.2s ease;
-  margin-top: 10px;
-}
-
-.discord-btn:hover {
-  background: #4752c4;
-}
-
-.game-detail {
-  max-width: 800px;
-  margin: 2em auto;
-  padding: 2em;
-  background: var(--card-bg);
-  border-radius: 10px;
-  color: var(--text-color);
-  line-height: 1.6;
-}
-
-.detail-logo {
-  width: 100%;
-  max-width: 300px;
-  display: block;
-  margin: 0 auto 2em auto;
-}
-
-
-.banner {
-  width: 100%;
-  max-height: 300px;
-  overflow: hidden;
-}
-
-.banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin: 1.5rem 0;
-}
-
-.feature-item {
-  background: rgba(235, 235, 235, 0.05);
-  padding: 1rem;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-  backdrop-filter: blur(4px);
-  transition: transform 0.2s ease;
-}
-
-.feature-item:hover {
-  transform: translateY(-4px);
-  background-color: rgba(255,255,255,0.07);
-}
-
-.feature-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.feature-item p {
-  font-size: 0.96rem;
-  line-height: 1.4;
-}
-
-
-body.dark {
-  --bg-color: #1a1a1a;
-  --text-color: #eaeaea;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --btn-bg: #444b7d;
-  --btn-hover: #2b2f55;
-  --tag-bg: #3399ff;
 }
