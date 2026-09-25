@@ -3,62 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fracturepoint | Game Details</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Fracturepoint | Twilight Ember Games</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJCNZF7YF9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FJCNZF7YF9');
+  </script>
+  <script src="../theme.js" defer></script>
 </head>
 <body>
 
   <header>
-    <h1>Fracturepoint</h1>
+    <a href="../index.html" class="site-title">Twilight Ember Games</a>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="games.html">Games</a>
-      <a href="fracturepoint.html">Fracturepoint</a>
-      <a href="about.html">About</a>
+      <a href="../index.html">Home</a>
+      <a href="../games.html" aria-current="page">Games</a>
+      <a href="../about.html">About</a>
     </nav>
+
+    <div class="header-actions">
+      <a href="https://discord.gg/QC223aD9S4" target="_blank" rel="noopener noreferrer" class="btn btn-discord">Discord</a>
+      <a href="https://twilight-ember-games.itch.io/fracturepoint" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">itch.io</a>
+      <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+    </div>
   </header>
 
   <main>
     <div class="banner">
-      <img src="../images/FracturePointBannerSmall.png" alt="Fracturepoint Banner test" />
+      <img src="../images/FracturePointBannerSmall.png" alt="Fracturepoint key art: a glowing cyan crystal fracturing against a dark battlefield" />
     </div>
-    
+
+    <h2 class="page-title">Fracturepoint</h2>
+
     <section class="game-detail">
 
-      <h2>Game Overview</h2>
+      <h3>Game Overview</h3>
       <p>
-        Fracturepoint is a MOBA-style game with a fractured twist. Unlike traditional objective paths, your team must destroy the enemy’s three “Hearts” — core crystals that hold the map together. With each one broken, you gain power... but lose something vital. Risk and reward have never been more intertwined.
+        Fracturepoint is a MOBA-style game with a fractured twist. Unlike traditional objective paths, your team must destroy the enemy's three "Hearts" — core crystals that hold the map together. With each one broken, you gain power... but lose something vital. Risk and reward have never been more intertwined.
       </p>
 
-      <h2>Features</h2>
+      <h3>Features</h3>
       <div class="feature-grid">
         <div class="feature-item">
-          <h3>💔 Crystalline Hearts</h3>
+          <h4>💔 Crystalline Hearts</h4>
           <p>Destroy three to win, but each one comes with a cost. Strategy meets sacrifice.</p>
         </div>
         <div class="feature-item">
-          <h3>🕳️ No Traditional Jungle</h3>
+          <h4>🕳️ No Traditional Jungle</h4>
           <p>Focused, lane-based combat. Say goodbye to just farming all game.</p>
         </div>
         <div class="feature-item">
-          <h3>🧪 Item-Driven Depth</h3>
+          <h4>🧪 Item-Driven Depth</h4>
           <p>Inspired by Dota 2, items shape your path alongside XP scaling.</p>
         </div>
         <div class="feature-item">
-          <h3>🧬 Hero Exposure Kits</h3>
-          <p>Heroes can have unique effects triggered by the map’s shifting exposure phases.</p>
+          <h4>🧬 Hero Exposure Kits</h4>
+          <p>Heroes can have unique effects triggered by the map's shifting exposure phases.</p>
         </div>
       </div>
 
-      <h2>Status</h2>
+      <h3>Status</h3>
       <p><strong>Currently:</strong> In development. Playtesting TBD.</p>
 
-      <a href="https://discord.gg/YOURINVITE" class="discord-btn" target="_blank">Join the Discord for Updates</a>
+      <a href="https://discord.gg/QC223aD9S4" class="btn btn-discord" target="_blank" rel="noopener noreferrer">Join the Discord for Updates</a>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Josiah Diestler | <a href="https://discord.gg/YOURINVITE" target="_blank">Discord</a>
+    &copy; <span id="copyright-year">2026</span> Twilight Ember Games | <a href="https://discord.gg/QC223aD9S4" target="_blank" rel="noopener noreferrer">Discord</a>
   </footer>
 
 </body>
